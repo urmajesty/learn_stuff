@@ -1,0 +1,2 @@
+class CourseStatus < ApplicationRecord
+end
