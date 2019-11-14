@@ -18,20 +18,18 @@ ActiveRecord::Schema.define(version: 2019_11_13_084517) do
     t.integer "rating"
     t.string "comments"
     t.datetime "date_completed"
+    t.integer "learner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["learner_id"], name: "index_courses_on_learner_id"
   end
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
-    t.integer "course_id", null: false
     t.integer "learner_id", null: false
-    t.integer "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_languages_on_course_id"
     t.index ["learner_id"], name: "index_languages_on_learner_id"
-    t.index ["project_id"], name: "index_languages_on_project_id"
   end
 
   create_table "learners", force: :cascade do |t|
@@ -59,22 +57,21 @@ ActiveRecord::Schema.define(version: 2019_11_13_084517) do
     t.string "title"
     t.boolean "completed"
     t.string "comments"
-    t.integer "learner_id", null: false
+    t.integer "language_id", null: false
     t.integer "course_id", null: false
     t.integer "project_id", null: false
     t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_statuses_on_course_id"
-    t.index ["learner_id"], name: "index_statuses_on_learner_id"
+    t.index ["language_id"], name: "index_statuses_on_language_id"
     t.index ["project_id"], name: "index_statuses_on_project_id"
   end
 
-  add_foreign_key "languages", "courses"
+  add_foreign_key "courses", "learners"
   add_foreign_key "languages", "learners"
-  add_foreign_key "languages", "projects"
   add_foreign_key "projects", "learners"
   add_foreign_key "statuses", "courses"
-  add_foreign_key "statuses", "learners"
+  add_foreign_key "statuses", "languages"
   add_foreign_key "statuses", "projects"
 end

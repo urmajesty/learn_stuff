@@ -6,7 +6,7 @@ class CreateCourses < ActiveRecord::Migration[6.0]
       t.integer :rating
       t.string :comments
       t.datetime :date_completed
-
+      t.belongs_to :learner, null: false, foreign_key: true
       t.timestamps
     end
   end
