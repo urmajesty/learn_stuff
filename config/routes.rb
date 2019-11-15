@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/login' => 'statuses#new'
   post '/login' => 'statuses#create'
+  delete '/logout' => 'statuses#destroy'
 
   get '/signup' => 'learners#new'
   post '/signup' => 'learners#create'

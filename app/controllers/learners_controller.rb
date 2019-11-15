@@ -14,7 +14,7 @@ class LearnersController < ApplicationController
     end
 
     def show
-            @learner = Learner.find_by(params[:id])
+            @learner = Learner.find_by(id: params[:id])
     end
 
 
