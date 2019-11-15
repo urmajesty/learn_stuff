@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_084517) do
+ActiveRecord::Schema.define(version: 2019_11_15_052631) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -26,10 +26,8 @@ ActiveRecord::Schema.define(version: 2019_11_13_084517) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
-    t.integer "learner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["learner_id"], name: "index_languages_on_learner_id"
   end
 
   create_table "learners", force: :cascade do |t|
@@ -40,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_11_13_084517) do
     t.string "github"
     t.string "twitter"
     t.string "linkedin"
-    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -69,7 +66,6 @@ ActiveRecord::Schema.define(version: 2019_11_13_084517) do
   end
 
   add_foreign_key "courses", "learners"
-  add_foreign_key "languages", "learners"
   add_foreign_key "projects", "learners"
   add_foreign_key "statuses", "courses"
   add_foreign_key "statuses", "languages"
