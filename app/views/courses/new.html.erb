@@ -1,0 +1,22 @@
+<h1>Add a New Course</h1>
+<%= form_for @course do |f| %>
+
+ <%= f.label :name %>
+  <%= f.text_field :name %>
+    <br></br>
+
+  <%= f.label :course %>
+  <%= f.select :course,options_for_select(["Colt Steele, Intro to Web Dev", "App Academy Open", "Lambda Bootcamp Prep", "Flatiron Prep Course", "Thinkful Prep Course", "other"]), include_blank: true  %>
+    <br></br>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+  <br></br>
+
+  <%= f.label :description, "Course Descriptoion" %>
+  <%= f.text_field :description %>
+    <br></br>
+
+  <%= f.submit%>
+
+<% end %>

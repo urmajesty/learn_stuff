@@ -26,6 +26,17 @@ class LanguagesController < ApplicationController
     end
 
     def update
-        params.require(:language.permit(:title, :distance, :category))
+        @language = Language.find_by(id: params[:id])
+        if language.update(language_params)
+            redirect_to language_path(@language)
+        else
+            render :edit
+        end
+    end
+
+    private
+
+    def language_params
+        params.require(:language).permit(:name)
     end
 end

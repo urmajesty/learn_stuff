@@ -1,0 +1,31 @@
+<%= f.label :course_id, "Select a Course:" %>
+    <%= f.collection_select :course_id, course.all, :id, :title, include_blank: true    %>
+
+     <br></br>
+
+     <h3>Or create a new course:</h3>
+     <%= render partial: "layouts/errors", locals: { object: @status.course } %>
+
+
+  <%= f.fields_for :course do |c| %>
+
+    <%= c.label :title %>
+    <%= c.text_field :title %>
+    <br></br>
+
+  <%= c.label :language %>
+  <%= c.select :language,options_for_select(["Colt Steele, Intro to Web Dev", "App Academy Open", "Lambda Bootcamp Prep", "Flatiron Prep Course", "Thinkful Prep Course", "other"]), include_blank: true  %>
+    <br></br>
+
+  <%= c.label :rating %>
+  <%= c.text_field :rating %>
+    <br></br>
+
+  <%= c.label :description, "Description" %>
+  <%= c.text_field :distance %>
+    <br></br>
+
+  <%= c.hidden_field :learner_id, value: current_learner.id %>
+    <br></br>
+
+  <% end %>

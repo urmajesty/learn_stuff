@@ -1,0 +1,8 @@
+<h1>Languages You Know</h1>
+
+<% @languages.each do |language|%>
+    <div>
+        <h4><%= link_to language.title, language_path(language) %> </h4>
+        <p> Language: <%= language.category %>
+</div><br>
+<% end %>        

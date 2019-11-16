@@ -1,5 +1,7 @@
 <h1> Please Sign Up </h1>
 
+<%= render partial: "layouts/errors", locals: { object: @learner } %>
+
 <%= form_for @learner do |f| %>
 
  <%= f.label :username %>

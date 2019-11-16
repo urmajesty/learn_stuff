@@ -1,0 +1,8 @@
+<h1>All Learners</h1>
+<ul>
+<% @learners.each do |u| %>
+  <li>
+    <%= link_to u.username, learner_path(u) %> - studying for <%= u.languages.size %> languages
+  </li><br>
+<% end %>
+</ul>

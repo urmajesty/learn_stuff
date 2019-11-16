@@ -1,0 +1,16 @@
+<h1>All Courses</h1>
+
+<ul>
+<% @courses.each do |course| %>
+<li>
+  <strong><%= course.name %></strong> -
+  <%=course.description %> rating  -
+  <%=course.rating %> - added by: <%= course.learner.username %> |
+  <%= link_to "See all study sessions", course_statuses_path(course)%> |
+  <%= link_to "Add a Study session", new_course_statuses_path(course)%> |
+  <%= course.statuses.size %>
+
+</li>
+
+<% end %>
+</ul>
