@@ -1,9 +1,5 @@
 <h1> Welcome <%=@learner.username.titleize %>!  Let's Learn Stuff!!! </h1>
-<ul>
-# <% @learner.languages.time_search(1).order_numeric_reverse.each do |r| %>
-#   <li><%= r.title %> - <%= r.time %> hours </li>
-<% end %>
-</ul>
+
 
 <% if current_learner != @learner %>
   <h5>Invite <%=@learner.username.titleize%> to study with you:</h5>

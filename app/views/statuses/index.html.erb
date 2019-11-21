@@ -1,5 +1,15 @@
-<h1>Welcome!!  Now let's Learn Stuff!!!</h1>
+<%= display_index_header %>
 
-<%= link_to "Log In", "/login" %>
+<ul>
+<% @statuses.order(:date).each do |t| %>
+  <li>
+    <%= t.username %> completed the
+    <%= link_to t.course.name, course_path(t.course)%>
+    while learning <%= link_to t.language.title, language_path(t.language)%>
+    <%= display_date(t) %>
+    <%= display_comments(t) %>
 
-<%= link_to "Sign Up", "/signup" %>
+
+  </li><br>
+<% end %>
+</ul>

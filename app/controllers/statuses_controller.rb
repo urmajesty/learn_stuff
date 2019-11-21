@@ -5,7 +5,6 @@ class StatusesController < ApplicationController
   end
 
   def index
-    #if it's nested
     if params[:course_id] && @course = Course.find_by_id(params[:course_id])
       @statuses = @course.statuses
       # @statuses = current_learner.statuses.by_course(params[:course_id])

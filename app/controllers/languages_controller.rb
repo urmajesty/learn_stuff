@@ -14,6 +14,7 @@ class LanguagesController < ApplicationController
 
     def create
         @language = current_learner.languages.build(language_params)
+        
         if @language.save
                 redirect_to language_path(@language)
         else
@@ -37,6 +38,6 @@ class LanguagesController < ApplicationController
     private
 
     def language_params
-        params.require(:language).permit(:name)
+        params.require(:language).permit(:language, :name)
     end
 end

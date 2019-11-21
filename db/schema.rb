@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_15_074611) do
+ActiveRecord::Schema.define(version: 2019_11_21_231907) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_11_15_074611) do
     t.integer "learner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
     t.index ["learner_id"], name: "index_courses_on_learner_id"
   end
 
@@ -29,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_11_15_074611) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "language"
+    t.integer "learner_id"
+    t.string "title"
   end
 
   create_table "learners", force: :cascade do |t|
@@ -41,6 +44,10 @@ ActiveRecord::Schema.define(version: 2019_11_15_074611) do
     t.string "linkedin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "created_courses"
+    t.string "title"
+    t.string "category"
+    t.string "description"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -61,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_11_15_074611) do
     t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
     t.index ["course_id"], name: "index_statuses_on_course_id"
     t.index ["language_id"], name: "index_statuses_on_language_id"
     t.index ["project_id"], name: "index_statuses_on_project_id"

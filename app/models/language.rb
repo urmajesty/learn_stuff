@@ -6,13 +6,13 @@ class Language < ApplicationRecord
 
   validates :language, presence: true
 
-  validate :unique
+  # validate :not_a_duplicate
 
-  scope :order_alpha_reverse, -> { order(title: :desc)}
+  scope :order_alpha_reverse, -> { order(language: :desc)}
 
-  def unique
-    if Language.find_by(language: language, learner_id: learner_id)
-      errors.add("language", "is a duplicate - this language has already been created")
-    end
-  end
+  # def not_a_duplicate
+  #   if Language.find_by(language: language, learner_id: learner_id)
+  #     errors.add("language", "is a duplicate - this language has already been created")
+  #   end
+  # end
 end

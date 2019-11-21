@@ -13,8 +13,8 @@ class Status < ApplicationRecord
 
   def course_attributes=(course_params)
     course = Course.find_or_create_by(course_params)
-    #course.valid? ? self.course = course : self.course
-    course_params[:name].empty? ? self.course : self.course = course
+    course.valid? ? self.course = course : self.course
+    # course_params[:name].empty? ? self.course : self.course = course
   end
 
   def datetime

@@ -8,4 +8,3 @@ class Course < ApplicationRecord
   scope :order_by_popularity, -> { Course.left_joins(:statuses).group(:id).order("count(statuses.course_id) desc") }
   #order by how many statuses
 end
-

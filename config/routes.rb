@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'sessions#index'
 
-  get '/' => 'sessions#welcome'
+  
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
@@ -9,14 +9,17 @@ Rails.application.routes.draw do
   get '/signup' => 'learners#new'
   post '/signup' => 'learners#create'
 
-  get '/auth/:provider/callback' =>'sessions#create'
-  
-  resources :languages
-  resources :projects
-  resources :sessions
-  resources :courses
-  resources :learners
+  get '/auth/:provider/callback' =>'sessions#oauth_login'
 
-  resources :learners, only: [:show]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/learners/:id/message' => 'learners#message'
+  
+ resources :courses do
+  resources :statuses, only: [:index, :new, :create]
+ end
+ resources :statuses
+ resources :languages do
+  resources :statuses
+ end
+ resources :learners
+ 
 end

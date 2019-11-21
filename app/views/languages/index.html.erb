@@ -2,7 +2,7 @@
 
 <% @languages.each do |language|%>
     <div>
-        <h4><%= link_to language.title, language_path(language) %> </h4>
-        <p> Language: <%= language.category %>
+        <h4><%= link_to language.name, language_path(language) %> </h4>
+        <p> Language: <%= language.language %> </p>
 </div><br>
 <% end %>        

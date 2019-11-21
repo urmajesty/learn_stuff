@@ -1,5 +1,5 @@
 <%= f.label :course_id, "Select a Course:" %>
-    <%= f.collection_select :course_id, course.all, :id, :title, include_blank: true    %>
+    <%= f.collection_select :course_id, Course.all, :id, :title, include_blank: true    %>
 
      <br></br>
 
@@ -13,8 +13,8 @@
     <%= c.text_field :title %>
     <br></br>
 
-  <%= c.label :language %>
-  <%= c.select :language,options_for_select(["Colt Steele, Intro to Web Dev", "App Academy Open", "Lambda Bootcamp Prep", "Flatiron Prep Course", "Thinkful Prep Course", "other"]), include_blank: true  %>
+  <%= c.label :category %>
+  <%= c.select :category,options_for_select(["Colt Steele, Intro to Web Dev", "App Academy Open", "Lambda Bootcamp Prep", "Flatiron Prep Course", "Thinkful Prep Course", "other"]), include_blank: true  %>
     <br></br>
 
   <%= c.label :rating %>
@@ -22,7 +22,7 @@
     <br></br>
 
   <%= c.label :description, "Description" %>
-  <%= c.text_field :distance %>
+  <%= c.text_field :description %>
     <br></br>
 
   <%= c.hidden_field :learner_id, value: current_learner.id %>
