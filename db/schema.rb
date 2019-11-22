@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_000458) do
+ActiveRecord::Schema.define(version: 2019_11_22_173815) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2019_11_22_000458) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
+    t.datetime "date"
+    t.string "url"
     t.index ["learner_id"], name: "index_courses_on_learner_id"
   end
 
@@ -32,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_000458) do
     t.string "language"
     t.integer "learner_id"
     t.string "title"
+    t.datetime "date"
   end
 
   create_table "learners", force: :cascade do |t|
@@ -48,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_000458) do
     t.string "title"
     t.string "category"
     t.string "description"
+    t.string "url"
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -56,18 +60,18 @@ ActiveRecord::Schema.define(version: 2019_11_22_000458) do
     t.string "comments"
     t.integer "language_id", null: false
     t.integer "course_id", null: false
-    t.integer "project_id", null: false
     t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
+    t.string "description"
+    t.integer "rating"
+    t.string "url"
     t.index ["course_id"], name: "index_statuses_on_course_id"
     t.index ["language_id"], name: "index_statuses_on_language_id"
-    t.index ["project_id"], name: "index_statuses_on_project_id"
   end
 
   add_foreign_key "courses", "learners"
   add_foreign_key "statuses", "courses"
   add_foreign_key "statuses", "languages"
-  add_foreign_key "statuses", "projects"
 end

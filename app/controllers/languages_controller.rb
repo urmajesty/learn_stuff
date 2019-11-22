@@ -28,7 +28,7 @@ class LanguagesController < ApplicationController
 
     def update
         @language = Language.find_by(id: params[:id])
-        if language.update(language_params)
+        if @language.update(language_params)
             redirect_to language_path(@language)
         else
             render :edit

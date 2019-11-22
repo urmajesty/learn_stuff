@@ -1,6 +1,5 @@
-<h1><%= @course.name %></h1>
+<h1><p><strong>Name:</strong> <%= @course.title.capitalize %> </h1>
 
+<p><strong>Description:</strong> <%= @course.description.capitalize %> </p>
 
-<p><%=@course.description %> description</p>
-
-<%=@course.rating %>
+<p><strong>Rating:</strong> <%= @course.rating %> </p>

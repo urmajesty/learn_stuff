@@ -4,8 +4,8 @@
 <% @statuses.order(:date).each do |t| %>
   <li>
     <%= t.username %> completed the
-    <%= link_to t.course.name, course_path(t.course)%>
-    while learning <%= link_to t.language.title, language_path(t.language)%>
+    <%= link_to t.course.title.capitalize, course_path(t.course)%>
+    while learning <%= link_to t.language.name, language_path(t.language)%>
     <%= display_date(t) %>
     <%= display_comments(t) %>
 

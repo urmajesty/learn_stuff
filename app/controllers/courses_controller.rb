@@ -3,19 +3,19 @@ class CoursesController < ApplicationController
     before_action :set_course, only: [:show]
 
     def index
-      @courses = Course.order_by_popularity
+      @languages = current_learner.courses    
     end
   
     def show
     end
   
     def new
-      @course = Course.new
+      @course = Course.new              
     end
   
     def create
        @course = current_learner.created_courses.build(course_params)
-       
+
        if @course.save
         redirect_to course_path(@course)
        else
@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
      private
   
      def course_params
-      params.require(:course).permit(:completed, :rating, :title, :comments)
+      params.require(:course).permit(:completed, :url, :category, :description, :rating, :title, :comments)
      end
   
      def set_course

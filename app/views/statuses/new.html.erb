@@ -1,8 +1,8 @@
-<h1> Create a Course </h1>
+<h1> Add a Status </h1>
 <%= render partial: "layouts/errors", locals: { object: @status } %>
 <%= form_for [@course,@status] do |f| %>
 
- <%= f.label :date %>
+ <%= f.label :date %>s
  <%= f.date_field :date %>
 
  <%= f.label :title %>

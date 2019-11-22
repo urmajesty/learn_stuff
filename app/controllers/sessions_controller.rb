@@ -24,10 +24,10 @@ class SessionsController < ApplicationController
     end
 
     def oauth_login
-        @user = User.from_omniauth(auth)
-        @user.save
-        session[:user_id] = @user.id
-       redirect_to user_path(@user.id)
+        @learner = Learner.from_omniauth(auth)
+        @learner.save
+        session[:learner_id] = @learner.id
+       redirect_to learner_path(@learner.id)
       end
 
     def destroy

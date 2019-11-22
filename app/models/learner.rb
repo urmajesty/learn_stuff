@@ -6,4 +6,13 @@ class Learner < ApplicationRecord
     has_secure_password
     validates :username, :email, presence: true
     validates :username, uniqueness: true
+
+def self.from_omniauth(auth)
+    #there are many ways to do it
+      where(email: auth.info.email).first_or_initialize do |learner|
+        learner.username = auth.info.name
+        learner.email = auth.info.email
+        learner.password = SecureRandom.hex
+      end
+    end
 end

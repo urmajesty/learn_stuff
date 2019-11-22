@@ -43,7 +43,7 @@ class StatusesController < ApplicationController
   private
 
   def status_params
-    params.require(:status).permit(:title, :completed, :language_id, :course_id, course_attributes:[:title, :description, :rating, :comments, :date_completed, :learner_id])
+    params.require(:status).permit(:title, :category, :date, :comments, :completed, :language_id, :course_id, course_attributes:[:title, :description, :rating, :comments, :date_completed, :learner_id])
   end
 end
 

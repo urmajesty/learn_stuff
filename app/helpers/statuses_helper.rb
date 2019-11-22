@@ -2,7 +2,7 @@ module StatusesHelper
 
   def display_index_header
      if @course
-      content_tag(:h2,"Course Statuses for the  #{@course.name} course")
+      content_tag(:h2,"Course Statuses for the  #{@course.title} course")
      elsif @language
        tag.h2("Language Statuses for the #{@language.title} language")
      else
@@ -21,7 +21,7 @@ module StatusesHelper
 
   def course_form_option(form_builder)
     if @course
-       content_tag(:p, "Course: #{@course.name}")
+       content_tag(:p, "Course: #{@course.title}")
     else
        render partial: "courseform", locals: {f: form_builder}
     end

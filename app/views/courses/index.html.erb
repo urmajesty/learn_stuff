@@ -3,11 +3,11 @@
 <ul>
 <% @courses.each do |course| %>
 <li>
-  <strong><%= course.name %></strong> -
+  <strong><%= course.title %></strong> -
   <%=course.description %> rating  -
   <%=course.rating %> - added by: <%= course.learner.username %> |
-  <%= link_to "See all study sessions", course_statuses_path(course)%> |
-  <%= link_to "Add a Study session", new_course_statuses_path(course)%> |
+  <%= link_to "See all participants", course_statuses_path(course)%> |
+  <%= link_to "Join this Course", new_course_status_path(course)%> |
   <%= course.statuses.size %>
 
 </li>
