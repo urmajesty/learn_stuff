@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
     private
     def current_learner
-        @current_learner ||= Learner.find_by(id:session[:learner_id]) if session[:learner_id]
+        @current_learner ||= Learner.find_by(id: session[:learner_id]) if session[:learner_id]
     end
 
     def logged_in?
