@@ -38,8 +38,13 @@ class LearnersController < ApplicationController
 
   private
 
+  def destroy
+    session.clear
+    redirect_to root_path
+  end
+
   def learner_params
-    params.require(:learner).permit(:username, :email, :password)
+    params.require(:learner).permit(:username, :language, :email, :password)
   end
 end
 

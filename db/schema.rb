@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_203602) do
+ActiveRecord::Schema.define(version: 2019_11_24_041455) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_203602) do
     t.datetime "date"
     t.string "url"
     t.datetime "timestamps"
+    t.text "language"
     t.index ["learner_id"], name: "index_courses_on_learner_id"
   end
 
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_203602) do
     t.integer "learner_id"
     t.string "title"
     t.datetime "date"
+    t.string "category"
   end
 
   create_table "learners", force: :cascade do |t|
@@ -53,21 +55,21 @@ ActiveRecord::Schema.define(version: 2019_11_22_203602) do
     t.string "category"
     t.string "description"
     t.string "url"
+    t.string "language"
   end
 
   create_table "statuses", force: :cascade do |t|
     t.string "title"
     t.boolean "completed"
     t.string "comments"
-    t.integer "language_id", null: false
+    t.integer "language_id"
     t.integer "course_id", null: false
     t.datetime "date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "category"
     t.string "description"
     t.integer "rating"
     t.string "url"
+    t.string "language"
     t.index ["course_id"], name: "index_statuses_on_course_id"
     t.index ["language_id"], name: "index_statuses_on_language_id"
   end

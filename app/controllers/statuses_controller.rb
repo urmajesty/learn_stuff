@@ -33,17 +33,23 @@ class StatusesController < ApplicationController
       @status = Status.new(status_params)
     end
 
-     if @status.save
+     if @status.save!
       redirect_to status_path(@status)
      else
       render :new
      end
   end
+  
+
+  def destroy
+    session.clear
+    redirect_to root_path
+  end
 
   private
 
   def status_params
-    params.require(:status).permit(:title, :category, :date, :comments, :completed, :language_id, :course_id, course_attributes:[:title, :description, :rating, :comments, :date_completed, :learner_id])
+    params.require(:status).permit(:title, :category, :language_id, :language, :date, :comments, :completed, :course_id, course_attributes:[:rating,  :comments, :date_completed, :learner_id])
   end
 end
 

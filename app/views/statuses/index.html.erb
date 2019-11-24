@@ -1,15 +1,15 @@
 <%= display_index_header %>
 
 <ul>
-<% @statuses.order(:date).each do |t| %>
+<% @status.order(:date).each do |t| %>
   <li>
-    <%= t.username %> completed the
-    <%= link_to t.course.title.capitalize, course_path(t.course)%>
-    while learning <%= link_to t.language.name, language_path(t.language)%>
-    <%= display_date(t) %>
+    <strong><%= t.username %></strong> studied 
+    <%= link_to t.course.title, course_path(t.course)%>
+    in the language of <%= link_to t.language.title, language_path(t.language_id)%>
+    <%= display_date(t) %><br></br>
     <%= display_comments(t) %>
 
 
-  </li><br>
+  </li>
 <% end %>
 </ul>
