@@ -1,4 +1,5 @@
 <%= f.label :course_id, "Select a Course:" %>
+<%= render partial: "layouts/errors", locals: { object: @status.course } %>
     <%= f.collection_select :course_id, Course.all, :id, :title, include_blank: true    %>
 
     

@@ -3,17 +3,9 @@ class CoursesController < ApplicationController
     before_action :set_course, only: [:show]
 
     def index
+      @courses = Course.all
+    end
 
-      # @courses = Course.order_by_popularity
-   
-         @learner = Learner.find_by(id: params[:learner_id])
-         if @learner
-           @courses = @learner.courses.all
-         else
-           @courses = Course.all
-         end
-       end
-  
     def show
     end
   

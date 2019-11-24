@@ -39,10 +39,10 @@ class LanguagesController < ApplicationController
         session.clear
         redirect_to root_path
     end
-    
+
     private
 
     def language_params
-        params.require(:language).permit(:language, :name)
+        params.require(:language).permit(:language, :title, :name)
     end
 end

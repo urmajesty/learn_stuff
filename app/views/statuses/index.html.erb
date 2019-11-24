@@ -1,12 +1,13 @@
 <%= display_index_header %>
+<%= render partial: "layouts/errors", locals: { object: @status } %>
 
 <ul>
-<% @status.order(:date).each do |t| %>
+<% @statuses.order(:date).each do |t| %>
   <li>
-    <strong><%= t.username %></strong> studied 
+    <strong><%= t.course.learner.username.capitalize %></strong> studied
     <%= link_to t.course.title, course_path(t.course)%>
-    in the language of <%= link_to t.language.title, language_path(t.language_id)%>
-    <%= display_date(t) %><br></br>
+    
+    <%= display_date(t) %>
     <%= display_comments(t) %>
 
 

@@ -7,8 +7,7 @@ class StatusesController < ApplicationController
   def index
     if params[:course_id] && @course = Course.find_by_id(params[:course_id])
       @statuses = @course.statuses
-      # @statuses = current_learner.statuses.by_course(params[:course_id])
-        #load up only the statuses nested under that course
+     
     elsif params[:language_id] && @language = Language.find_by_id(params[:language_id])
       @statuses = @language.statuses
     else
@@ -41,15 +40,10 @@ class StatusesController < ApplicationController
   end
   
 
-  def destroy
-    session.clear
-    redirect_to root_path
-  end
-
   private
 
   def status_params
-    params.require(:status).permit(:title, :category, :language_id, :language, :date, :comments, :completed, :course_id, course_attributes:[:rating,  :comments, :date_completed, :learner_id])
+    params.require(:status).permit(:title, :category, :language_id, :language, :date, :comments, :completed, :course_id, course_attributes:[:rating, :comments, :date_completed, :learner_id])
   end
 end
 
