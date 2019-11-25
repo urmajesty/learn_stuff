@@ -1,7 +1,9 @@
 class Course < ApplicationRecord
     has_many :languages, through: :statuses
-    has_many :statuses
+    has_many :statuses, dependent: :destroy
     belongs_to :learner
+
+   
 
     #validates :title, :description, presence: true
 
