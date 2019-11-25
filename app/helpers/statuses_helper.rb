@@ -16,7 +16,7 @@ module StatusesHelper
 
 
   def display_comments(t)
-    "My experience: #{t.comments}"  if !t.comments.empty?
+    "My current thoughts: #{t.comments}"  if !t.comments.empty?
   end
 
   def course_form_option(form_builder)

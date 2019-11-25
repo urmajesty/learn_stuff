@@ -1,6 +1,5 @@
-
+<h1> Add a Status </h1>
 <%= render partial: "layouts/errors", locals: { object: @status } %>
-
 <%= form_for [@course,@status] do |f| %>
 
  <%= f.label :date %>
@@ -10,12 +9,8 @@
  <%= f.label :comments %>
  <%= f.text_field :comments %>
 
- <br></br>
 
-  <%= f.label :language %>
-  <%= f.select :language,options_for_select(["ANDROID", "ANGULARJS", "BOOTSTRAP", "C", "CPP", "CSHARP", "CSS", "DATA-STRUCTURE", "DEBUG-TEST", "DEVELOPMENT-TOOLS", "DJANGO", "DRUPAL", "E-COMMERCE", "ETHICAL-HACKING", "GAME-DEVELOPMENT", "GIT", "HARDWARE", "HTML", "IOS", "JAVA", "JAVASCRIPT", "JQUERY", "JSON", "MACHINE-LEARNING", "MATLAB", "MOBILE-DEVELOPMENT-OTHER", "MYSQL", "NODEJS", "NOSQL", "PHP", "PROGRAMMING-OTHER", "PYTHON", "R-PROGRAMMING", "REACT-REDUX", "ROBOTICS", "RUBY", "SEO", "SOFTWARE", "SQL", "SYSTEM-PROGRAMMING", "UX", "WEB-DEVELOPMENT-OTHER", "WORDPRESS", "VUE", "D-MODEL", "AFTER-EFFECTS", "ANIMATION", "GRAPHIC-DESIGN", "PHOTOGRAPHY", "PHOTOSHOP", "PREMIERE-PRO", "VIDEO-DESIGN", "AWS", "HOSTING", "LINUX", "MAC", "NETWORK-SECURITY", "WINDOWS", "WINDOWS-SERVER", "ACADEMIC", "BLOCKCHAIN", "BUSINESS", "CERTIFICATION", "HEALTH-FITNESS", "LANGUAGES", "LIFESTYLE", "MARKETING", "MUSIC", "OFFICE-PRODUCTIVITY", "PERSONAL-DEVELOPMENT", "SOCIAL-MEDIA", "OTHER"]),include_blank: true %>
-
-
+  <br></br>
 
   <%= course_form_option(f) %>
 

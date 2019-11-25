@@ -38,12 +38,23 @@ class StatusesController < ApplicationController
       render :new
      end
   end
+
+
+  def destroy
+    @status = Status.find(params[:id])
+    if current_learner 
+      @course.destroy
+      redirect_to status_path(current_learner), info: "Status has been deleted."
+    else 
+      redirect_to status_path(@status), warning: "You can only delete Statuses that you've created."
+    end
+  end
   
 
   private
 
   def status_params
-    params.require(:status).permit(:title, :category, :language_id, :language, :date, :comments, :completed, :course_id, course_attributes:[:rating, :comments, :date_completed, :learner_id])
+    params.require(:status).permit(:title, :course, :category, :language_id, :language, :date, :comments, :completed, :course_id, course_attributes:[:rating, :comments, :date_completed, :learner_id])
   end
 end
 

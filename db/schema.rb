@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_041455) do
+ActiveRecord::Schema.define(version: 2019_11_25_174442) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_11_24_041455) do
     t.integer "rating"
     t.string "url"
     t.string "language"
+    t.string "course"
     t.index ["course_id"], name: "index_statuses_on_course_id"
     t.index ["language_id"], name: "index_statuses_on_language_id"
   end

@@ -4,7 +4,7 @@
 <ul>
 <% @statuses.order(:date).each do |t| %>
   <li>
-    <strong><%= t.course.learner.username.capitalize %></strong> studied
+    <strong><%= t.course.learner.username %></strong> studied
     <%= link_to t.course.title, course_path(t.course)%>
     
     <%= display_date(t) %>
