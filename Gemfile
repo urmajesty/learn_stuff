@@ -41,7 +41,7 @@ gem 'omniauth-google-oauth2'
 #github oauth
 gem 'omniauth-github'
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
