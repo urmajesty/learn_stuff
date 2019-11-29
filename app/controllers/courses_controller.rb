@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     if current_learner 
       @course.destroy
-      redirect_to course_path(current_learner), info: "Course has been deleted."
+      redirect_to course_path(@course), info: "Course has been deleted."
     else 
       redirect_to course_path(@course), warning: "You can only delete courses that you've created."
     end

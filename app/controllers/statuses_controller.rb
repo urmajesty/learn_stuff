@@ -43,7 +43,7 @@ class StatusesController < ApplicationController
   def destroy
     @status = Status.find(params[:id])
     if current_learner 
-      @course.destroy
+      @status.destroy
       redirect_to status_path(current_learner), info: "Status has been deleted."
     else 
       redirect_to status_path(@status), warning: "You can only delete Statuses that you've created."
