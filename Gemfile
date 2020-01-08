@@ -30,7 +30,7 @@ group :development do
   gem "capistrano"
 end
 #oauth gem
-gem 'omniauth'
+gem 'omniauth-rails'
 
 #dotenv
 gem 'dotenv-rails'
@@ -41,7 +41,7 @@ gem 'omniauth-google-oauth2'
 #github oauth
 gem 'omniauth-github'
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
