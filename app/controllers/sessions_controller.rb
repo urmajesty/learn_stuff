@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
         end
     end
 
-    def oauth_login
+    def omniauth
         @learner = Learner.from_omniauth(auth)
         @learner.save
         session[:learner_id] = @learner.id

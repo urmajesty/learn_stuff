@@ -51,9 +51,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_174442) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "created_courses"
-    t.string "title"
     t.string "category"
-    t.string "description"
     t.string "url"
     t.string "language"
   end

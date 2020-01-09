@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/signup' => 'learners#new'
   post '/signup' => 'learners#create'
 
-  get '/auth/:provider/callback' =>'sessions#oauth_login'
+  get '/auth/google_oauth2/callback' =>'sessions#omniauth'
 
   get '/learners/:id/message' => 'learners#message'
   
